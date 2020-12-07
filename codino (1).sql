@@ -1,0 +1,111 @@
+-- phpMyAdmin SQL Dump
+-- version 5.0.2
+-- https://www.phpmyadmin.net/
+--
+-- Host: 127.0.0.1
+-- Generation Time: Dec 07, 2020 at 06:38 AM
+-- Server version: 10.4.11-MariaDB
+-- PHP Version: 7.4.6
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+START TRANSACTION;
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `codino`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `code`
+--
+
+CREATE TABLE `code` (
+  `id` int(4) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `description` varchar(255) NOT NULL,
+  `question` text NOT NULL,
+  `diff` varchar(255) NOT NULL,
+  `category` varchar(255) NOT NULL,
+  `ans1` text NOT NULL,
+  `ans2` text NOT NULL,
+  `link` varchar(255) NOT NULL,
+  `date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `code`
+--
+
+INSERT INTO `code` (`id`, `title`, `description`, `question`, `diff`, `category`, `ans1`, `ans2`, `link`, `date`) VALUES
+(18, 'Two Sum', 'Finding two numbers of an array such that they add up to a particular target.', '<p>Given an array of integers nums and integer target, return <i>the&nbsp;indices of the two numbers such that they add up to target</i>.</p><p>You may assume that each input would have <i><strong>exactly</strong></i><strong> one solution</strong>, and you may not use the <i>same</i> element twice.</p><p>You can return the answer in any order.</p><p>&nbsp;</p><p><strong>Example 1:</strong></p><p><strong>Input:</strong></p><p>&nbsp;nums = [2,7,11,15], target = 9\r\n</p><p><strong>Output:</strong></p><p>&nbsp;[0,1]\r\n</p><p><strong>Output:</strong></p><p>&nbsp;Because nums[0] + nums[1] == 9, we return [0, 1]\r\n</p><p><strong>Example 2:</strong></p><p><strong>Input:</strong></p><p>&nbsp;nums = [3,2,4], target = 6\r\n</p><p><strong>Output:</strong></p><p>&nbsp;[1,2]\r\n</p><p><strong>Example 3:</strong></p><p><strong>Input:</strong></p><p>&nbsp;nums = [3,3], target = 6\r\n</p><p><strong>Output:</strong></p><p>&nbsp;[0,1]\r\n</p><p>&nbsp;</p><p><strong>Constraints:</strong></p><ul><li>1 &lt;= nums.length &lt;= 105</li><li>-109 &lt;= nums[i] &lt;= 109</li><li>-109 &lt;= target &lt;= 109</li><li><strong>Only one valid answer exists.</strong></li></ul>', 'Easy', 'Array', '<p>class Solution {</p><p>public:</p><p>&nbsp; &nbsp;vector&lt;int&gt; twoSum(vector&lt;int&gt;&amp; nums, int target) {</p><p>&nbsp; &nbsp; &nbsp; &nbsp;vector &lt;int&gt; ans;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;for(int i=0; i&lt;nums.size();i++){</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for(int j=i+1; j&lt;nums.size();j++){</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if((nums[i]+nums[j])==target){</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ans.push_back(i);</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ans.push_back(j);</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return ans;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp; &nbsp; &nbsp;return ans;</p><p>&nbsp; &nbsp;}</p><p>};</p>', '<p>class Solution {</p><p>&nbsp; &nbsp;public int[] twoSum(int[] nums, int target) {</p><p>&nbsp; &nbsp; &nbsp; &nbsp;for(int i=0;i&lt;nums.length;i++)</p><p>&nbsp; &nbsp; &nbsp; &nbsp;{</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;for(int j=i+1;j&lt;nums.length;j++)</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if((nums[i]+nums[j])==target)</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return new int[]{i,j};</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp;return new int[0]; &nbsp; &nbsp;</p><p>&nbsp; &nbsp;}</p><p>}</p>', 'https://leetcode.com/problems/two-sum/', '2020-09-02'),
+(19, ' Longest Substring', 'Finding the longest substring without repeating characters.', '<p>Given a string, find the length of the <strong>longest substring</strong> without repeating characters.</p><p><strong>Example 1:</strong></p><p><strong>Input: </strong>\"abcabcbb\"\r\n<strong>Output: </strong>3 \r\n<strong>Explanation:</strong> The answer is \"abc\", with the length of 3. \r\n</p><p><strong>Example 2:</strong></p><p><strong>Input: </strong>\"bbbbb\"\r\n<strong>Output: </strong>1\r\n<strong>Explanation: </strong>The answer is \"b\", with the length of 1.\r\n</p><p><strong>Example 3:</strong></p><p><strong>Input: </strong>\"pwwkew\"\r\n<strong>Output: </strong>3\r\n<strong>Explanation: </strong>The answer is \"wke\", with the length of 3. \r\n &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Note that the answer must be a <strong>substring</strong>, \"pwke\" is a <i>subsequence</i> and not a substring.</p>', 'Moderate', 'String', '<p>class Solution {</p><p>public:</p><p>&nbsp; &nbsp;int lengthOfLongestSubstring(string s) {</p><p>&nbsp; &nbsp; &nbsp; &nbsp;int lastIndex=0,ans=0;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;vector&lt;int&gt; largestIndex(256,0);&nbsp;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;for(int c=0;c&lt;s.size();++c){</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;lastIndex = max(lastIndex, largestIndex[s[c]]);</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ans = max(ans,c-lastIndex+1);</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;largestIndex[s[c]]=c+1;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp; &nbsp; &nbsp;return ans;</p><p>&nbsp; &nbsp;}</p><p>};</p>', '<p>public class Solution {</p><p>&nbsp; &nbsp;public int lengthOfLongestSubstring(String s) {</p><p>&nbsp; &nbsp; &nbsp; &nbsp;int n = s.length();</p><p>&nbsp; &nbsp; &nbsp; &nbsp;Set&lt;Character&gt; set = new HashSet&lt;&gt;();</p><p>&nbsp; &nbsp; &nbsp; &nbsp;int ans = 0, i = 0, j = 0;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;while (i &lt; n &amp;&amp; j &lt; n) {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;// try to extend the range [i, j]</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;if (!set.contains(s.charAt(j))){</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;set.add(s.charAt(j++));</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ans = Math.max(ans, j - i);</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;else {</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;set.remove(s.charAt(i++));</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp; &nbsp; &nbsp;return ans;</p><p>&nbsp; &nbsp;}</p><p>}</p>', 'https://leetcode.com/problems/longest-substring-without-repeating-characters/', '2020-09-02'),
+(20, 'Median of Two Sorted Arrays', 'Given two sorted arrays, find the median of them together.', '<p>Given two sorted arrays nums1 and nums2 of size m and n respectively.</p><p>Return <strong>the median</strong> of the two sorted arrays.</p><p><strong>Follow up:</strong> The overall run time complexity should be O(log (m+n)).</p><p>&nbsp;</p><p><strong>Example 1:</strong></p><p><strong>Input:</strong></p><p>&nbsp;nums1 = [1,3], nums2 = [2]\r\n</p><p><strong>Output:</strong></p><p>&nbsp;2.00000\r\n</p><p><strong>Explanation:</strong></p><p>&nbsp;merged array = [1,2,3] and median is 2.\r\n</p><p><strong>Example 2:</strong></p><p><strong>Input:</strong></p><p>&nbsp;nums1 = [1,2], nums2 = [3,4]\r\n</p><p><strong>Output:</strong></p><p>&nbsp;2.50000\r\n</p><p><strong>Explanation:</strong></p><p>&nbsp;merged array = [1,2,3,4] and median is (2 + 3) / 2 = 2.5.\r\n</p><p><strong>Example 3:</strong></p><p><strong>Input:</strong></p><p>&nbsp;nums1 = [0,0], nums2 = [0,0]\r\n</p><p><strong>Output:</strong></p><p>&nbsp;0.00000\r\n</p><p><strong>Example 4:</strong></p><p><strong>Input:</strong></p><p>&nbsp;nums1 = [], nums2 = [1]\r\n</p><p><strong>Output:</strong></p><p>&nbsp;1.00000\r\n</p><p><strong>Example 5:</strong></p><p><strong>Input:</strong></p><p>&nbsp;nums1 = [2], nums2 = []\r\n</p><p><strong>Output:</strong></p><p>&nbsp;2.00000\r\n</p><p>&nbsp;</p><p><strong>Constraints:</strong></p><ul><li>nums1,length == m</li><li>nums2,length == n</li><li>0 &lt;= m &lt;= 1000</li><li>0 &lt;= n &lt;= 1000</li><li>1 &lt;= m + n &lt;= 2000</li></ul>', 'Hard', 'Array', '<p>class Solution {</p><p>public:</p><p>&nbsp; &nbsp;double findMedianSortedArrays(vector&lt;int&gt;&amp; nums1, vector&lt;int&gt;&amp; nums2) {</p><p>&nbsp; &nbsp; &nbsp; &nbsp;double ans=0.00;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;int x,y;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;vector&lt;int&gt; v(nums1);</p><p>&nbsp; &nbsp; v.insert(v.end(), nums2.begin(), nums2.end());</p><p>&nbsp; &nbsp; &nbsp; &nbsp;sort(v.begin(),v.end());</p><p>&nbsp; &nbsp; &nbsp; &nbsp;if(v.size()%2!=0)</p><p>&nbsp; &nbsp; &nbsp; &nbsp;{</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;x=v.size()/2;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ans=v[x];</p><p>&nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp; &nbsp; &nbsp;else</p><p>&nbsp; &nbsp; &nbsp; &nbsp;{</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;x=(v.size()-1)/2;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;y=(v.size()+1)/2;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;ans=(v[x]+v[y])/2.00;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;}</p><p>&nbsp; &nbsp; &nbsp; &nbsp;return ans;</p><p>&nbsp; &nbsp;}</p><p>};</p>', '<p>class Solution {</p><p>&nbsp; &nbsp;public double findMedianSortedArrays(int[] nums1, int[] nums2) {</p><p>&nbsp; &nbsp; &nbsp; &nbsp;int n;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;int ans[]=new int[nums1.length+nums2.length];</p><p>&nbsp; &nbsp; &nbsp; &nbsp;mergeArrays(nums1,nums2,nums1.length,nums2.length,ans);</p><p>&nbsp; &nbsp; &nbsp; &nbsp;if(ans.length%2==1)</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return ans[((ans.length+1)/2)-1];</p><p>&nbsp; &nbsp; &nbsp; &nbsp;else</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;return ((double)(ans[(ans.length)/2]+ans[(ans.length/2)-1])/2);</p><p>&nbsp; &nbsp;}</p><p>&nbsp;</p><p>&nbsp; &nbsp;void mergeArrays(int arr1[], int arr2[], int n1, int n2, int arr3[]) &nbsp;</p><p>{ &nbsp;</p><p>&nbsp; &nbsp;int i = 0, j = 0, k = 0; &nbsp;</p><p>&nbsp; &nbsp;// Traverse both array &nbsp;</p><p>&nbsp; &nbsp;while (i&lt;n1 &amp;&amp; j &lt;n2) &nbsp;</p><p>&nbsp; &nbsp;{ &nbsp;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;if (arr1[i] &lt; arr2[j]) &nbsp;</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;arr3[k++] = arr1[i++]; &nbsp;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;else</p><p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;arr3[k++] = arr2[j++]; &nbsp;</p><p>&nbsp; &nbsp;} &nbsp;</p><p>&nbsp; &nbsp;// Store remaining elements of first array &nbsp;</p><p>&nbsp; &nbsp;while (i &lt; n1) &nbsp;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;arr3[k++] = arr1[i++]; &nbsp;</p><p>&nbsp; &nbsp;// Store remaining elements of second array &nbsp;</p><p>&nbsp; &nbsp;while (j &lt; n2) &nbsp;</p><p>&nbsp; &nbsp; &nbsp; &nbsp;arr3[k++] = arr2[j++];</p><p>} &nbsp;</p><p>}</p>', 'https://leetcode.com/problems/median-of-two-sorted-arrays/', '2020-09-02'),
+(21, 'Birthday Cake Candles', 'Finding the number of tallest candles in a bunch of candles.', '<p>You are in-charge of the cake for your niece\'s birthday and have decided the cake will have one candle foreach year of her total age. When she blows out the candles, she’ll only be able to blow out the tallest ones. Your task is to find out how many candles she can successfully blow out.</p><p>For example, if your niece is turning <strong>4 </strong>years old, and the cake will have candles of height <strong>3,2,1,3,</strong> she will be able to blow out <strong>2 </strong>candles successfully, since the tallest candle is of height <strong>3 </strong>and there are such <strong>2</strong> candles.</p><p>Complete the function Given the height of each individual candle, find and print the number of candles she can successfully blow out.</p><p>Input Format</p><p>The first line contains a single integer, <i><strong>n</strong></i>, denoting the number of candles on the cake.</p><p>The second line contains <i><strong>n </strong></i>space-separated integers, where each integer <i><strong>i </strong></i>describes the height of candle <i><strong>i</strong></i>.</p><p><strong>Constraints</strong></p><ul><li><strong>1 ≤ n ≤ 10^5</strong></li><li><strong>1 ≤ height≤ 10^7</strong></li></ul><p><strong>Output Format</strong></p><p>Print the number of candles the can be blown out on a new line.</p><p><strong>Sample Input 0</strong></p><p>4</p><p>3 2 1 3</p><p><strong>Sample Output 0</strong></p><p>2</p><p><strong>Explanation 0</strong></p><p>We have one candle of height <strong>1</strong>, one candle of height <strong>2</strong>, and two candles of height <strong>3</strong>. Your niece only</p><p>blows out the tallest candles, meaning the candles where <strong>height = 3</strong>. Because there are 2 such candles,</p><p>we print 2 on a new line.</p>', 'Easy', 'Array', '<p>#include&nbsp;&lt;bits/stdc++.h&gt;</p><p>using&nbsp;namespace&nbsp;std;</p><p>vector&lt;string&gt;&nbsp;split_string(string);</p><p>//&nbsp;Complete&nbsp;the&nbsp;birthdayCakeCandles&nbsp;function&nbsp;below.</p><p>int&nbsp;birthdayCakeCandles(vector&lt;int&gt;&nbsp;ar)&nbsp;{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int&nbsp;max&nbsp;=&nbsp;0;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int&nbsp;count&nbsp;=0;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int&nbsp;i;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(i=0;i&lt;ar.size();i++){</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(max&lt;ar[i]){</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max&nbsp;=&nbsp;ar[i];</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;=&nbsp;1;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else&nbsp;if(max&nbsp;==&nbsp;ar[i]){</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count++;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return&nbsp;count;</p><p>}</p><p>&nbsp;</p><p>int&nbsp;main()</p><p>{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;ofstream&nbsp;fout(getenv(\"OUTPUT_PATH\"));</p><p>&nbsp;&nbsp;&nbsp; int&nbsp;ar_count;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;cin&nbsp;&gt;&gt;&nbsp;ar_count;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;cin.ignore(numeric_limits&lt;streamsize&gt;::max(),&nbsp;\'\\n\');</p><p>&nbsp;&nbsp;&nbsp;&nbsp;string&nbsp;ar_temp_temp;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;getline(cin,&nbsp;ar_temp_temp);</p><p>&nbsp;&nbsp;&nbsp;&nbsp;vector&lt;string&gt;&nbsp;ar_temp&nbsp;=&nbsp;split_string(ar_temp_temp);</p><p>&nbsp;&nbsp;&nbsp;&nbsp;vector&lt;int&gt;&nbsp;ar(ar_count);</p><p>&nbsp;&nbsp;&nbsp; for&nbsp;(int&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;ar_count;&nbsp;i++)&nbsp;{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int&nbsp;ar_item&nbsp;=&nbsp;stoi(ar_temp[i]);</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ar[i]&nbsp;=&nbsp;ar_item;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;}</p><p>&nbsp;&nbsp;&nbsp; int&nbsp;result&nbsp;=&nbsp;birthdayCakeCandles(ar);</p><p>&nbsp;&nbsp;&nbsp;&nbsp;fout&nbsp;&lt;&lt;&nbsp;result&nbsp;&lt;&lt;&nbsp;\"\\n\";</p><p>&nbsp;&nbsp;&nbsp;&nbsp;fout.close();</p><p>&nbsp;&nbsp;&nbsp; return&nbsp;0;</p><p>}</p><p>vector&lt;string&gt;&nbsp;split_string(string&nbsp;input_string)&nbsp;{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;string::iterator&nbsp;new_end&nbsp;=&nbsp;unique(input_string.begin(),&nbsp;input_string.end(),&nbsp;[]&nbsp;(const&nbsp;char&nbsp;&amp;x,&nbsp;const&nbsp;char&nbsp;&amp;y)&nbsp;{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return&nbsp;x&nbsp;==&nbsp;y&nbsp;and&nbsp;x&nbsp;==&nbsp;\'&nbsp;\';</p><p>&nbsp;&nbsp;&nbsp;&nbsp;});</p><p>&nbsp;&nbsp;&nbsp;&nbsp;input_string.erase(new_end,&nbsp;input_string.end());</p><p>&nbsp;&nbsp;&nbsp; while&nbsp;(input_string[input_string.length()&nbsp;-&nbsp;1]&nbsp;==&nbsp;\'&nbsp;\')&nbsp;{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;input_string.pop_back();</p><p>&nbsp;&nbsp;&nbsp;&nbsp;}</p><p>&nbsp;&nbsp;&nbsp;&nbsp;vector&lt;string&gt;&nbsp;splits;</p><p>&nbsp;&nbsp;&nbsp; char&nbsp;delimiter&nbsp;=&nbsp;\'&nbsp;\';</p><p>&nbsp;&nbsp;&nbsp;&nbsp;size_t&nbsp;i&nbsp;=&nbsp;0;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;size_t&nbsp;pos&nbsp;=&nbsp;input_string.find(delimiter);</p><p>&nbsp;&nbsp;&nbsp; while&nbsp;(pos&nbsp;!=&nbsp;string::npos)&nbsp;{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;splits.push_back(input_string.substr(i,&nbsp;pos&nbsp;-&nbsp;i));</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;i&nbsp;=&nbsp;pos&nbsp;+&nbsp;1;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;pos&nbsp;=&nbsp;input_string.find(delimiter,&nbsp;i);</p><p>&nbsp;&nbsp;&nbsp;&nbsp;}</p><p>&nbsp;&nbsp;&nbsp;&nbsp;splits.push_back(input_string.substr(i,&nbsp;min(pos,&nbsp;input_string.length())&nbsp;-&nbsp;i&nbsp;+&nbsp;1));</p><p>&nbsp;&nbsp;&nbsp; return&nbsp;splits;</p><p>}</p><p><br>&nbsp;</p>', '<p>import&nbsp;java.io.*;</p><p>import&nbsp;java.math.*;</p><p>import&nbsp;java.security.*;</p><p>import&nbsp;java.text.*;</p><p>import&nbsp;java.util.*;</p><p>import&nbsp;java.util.concurrent.*;</p><p>import&nbsp;java.util.regex.*;</p><p>public&nbsp;class&nbsp;Solution&nbsp;{</p><p>&nbsp;&nbsp;&nbsp; //&nbsp;Complete&nbsp;the&nbsp;birthdayCakeCandles&nbsp;function&nbsp;below.</p><p>&nbsp;&nbsp;&nbsp; static&nbsp;int&nbsp;birthdayCakeCandles(int[]&nbsp;ar)&nbsp;{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int&nbsp;max&nbsp;=&nbsp;0;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int&nbsp;count&nbsp;=0;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int&nbsp;i;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for(i=0;i&lt;ar.length;i++){</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; if(max&lt;ar[i]){</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;max&nbsp;=&nbsp;ar[i];</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count&nbsp;=&nbsp;1;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}else&nbsp;if(max&nbsp;==&nbsp;ar[i]){</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;count++;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; return&nbsp;count;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;}</p><p>&nbsp;&nbsp;&nbsp; private&nbsp;static&nbsp;final&nbsp;Scanner&nbsp;scanner&nbsp;=&nbsp;new&nbsp;Scanner(System.in);</p><p>&nbsp;&nbsp;&nbsp; public&nbsp;static&nbsp;void&nbsp;main(String[]&nbsp;args)&nbsp;throws&nbsp;IOException&nbsp;{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BufferedWriter&nbsp;bufferedWriter&nbsp;=&nbsp;new&nbsp;BufferedWriter(new&nbsp;FileWriter(System.getenv(\"OUTPUT_PATH\")));</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int&nbsp;arCount&nbsp;=&nbsp;scanner.nextInt();</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanner.skip(\"(\\r\\n|[\\n\\r\\u2028\\u2029\\u0085])?\");</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int[]&nbsp;ar&nbsp;=&nbsp;new&nbsp;int[arCount];</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;String[]&nbsp;arItems&nbsp;=&nbsp;scanner.nextLine().split(\"&nbsp;\");</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanner.skip(\"(\\r\\n|[\\n\\r\\u2028\\u2029\\u0085])?\");</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; for&nbsp;(int&nbsp;i&nbsp;=&nbsp;0;&nbsp;i&nbsp;&lt;&nbsp;arCount;&nbsp;i++)&nbsp;{</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int&nbsp;arItem&nbsp;=&nbsp;Integer.parseInt(arItems[i]);</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ar[i]&nbsp;=&nbsp;arItem;</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; int&nbsp;result&nbsp;=&nbsp;birthdayCakeCandles(ar);</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bufferedWriter.write(String.valueOf(result));</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bufferedWriter.newLine();</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;bufferedWriter.close();</p><p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;scanner.close();</p><p>&nbsp;&nbsp;&nbsp;&nbsp;}</p><p>}</p>', 'https://www.hackerrank.com/challenges/birthday-cake-candles/problem', '2020-09-02');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `comments`
+--
+
+CREATE TABLE `comments` (
+  `comment_id` int(11) NOT NULL,
+  `comment_post_id` int(11) NOT NULL,
+  `comment_author` varchar(255) NOT NULL,
+  `comment_email` varchar(255) NOT NULL,
+  `comment_content` text NOT NULL,
+  `comment_date` date NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `comments`
+--
+
+INSERT INTO `comments` (`comment_id`, `comment_post_id`, `comment_author`, `comment_email`, `comment_content`, `comment_date`) VALUES
+(5, 18, 'Prahlad', 'prahlad@gmail.com', 'IOLJKMK', '2020-09-04'),
+(6, 18, 'Tanul', 'mudgal@ojfimkl', 'NLSK', '2020-09-04');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `code`
+--
+ALTER TABLE `code`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `comments`
+--
+ALTER TABLE `comments`
+  ADD PRIMARY KEY (`comment_id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `code`
+--
+ALTER TABLE `code`
+  MODIFY `id` int(4) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=22;
+
+--
+-- AUTO_INCREMENT for table `comments`
+--
+ALTER TABLE `comments`
+  MODIFY `comment_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+COMMIT;
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
