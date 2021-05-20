@@ -1,6 +1,6 @@
 # codino
 
-http://codino.infinityfreeapp.com/
+Live it live on http://codino.infinityfreeapp.com/
 
 # Screenshots
 
